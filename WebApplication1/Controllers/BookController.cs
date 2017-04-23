@@ -22,6 +22,7 @@ namespace WebApplication1.Controllers
             var db = Globals.GetDatabase();
             var book = new Book();
             var Author = new Author();
+
             book.BookName = model.BookName;
             Author.AuthorName = model.Author;
             book.WrittenBy = Author; 

@@ -21,6 +21,7 @@ namespace WebApplication1.Models
     }
 
     public class Publisher {
+        [Key]
         public int publisherID { get; set; }
         public string name { get; set; }
         public string contact { get; set; }
@@ -28,20 +29,21 @@ namespace WebApplication1.Models
 
     }
     public class Author {
+        [Key]
         public int AuthorID { get; set; }
         public int BookID { get; set; }
         public string AuthorName { get; set; }
 
     }
-    public class Billing
-    {
-        public int invoiceno { get; set; }
-        public int customerno { get; set; }
-        public DateTime date { get; set; }
-        public int price { get; set; }
-        public int quantity { get; set; }
-        public int isbn { get; set; }
-        public string title { get; set; }
+    public class Billing{
+        [Key]
+        public int InvoiceNo { get; set; }
+        public int CustomerNo { get; set; }
+        public DateTime Date { get; set; }
+        public int Price { get; set; }
+        public int Quantity { get; set; }
+        public int ISBN { get; set; }
+        public string BookName { get; set; }
     }
 
     public class Employee : ApplicationUser
@@ -65,8 +67,8 @@ namespace WebApplication1.Models
             Books = new HashSet<Book>();
         }
 
-
-        public int orderid { get; set; }
+        [Key]
+        public int OrderId { get; set; }
         public Customer BoughtBy { get; set; }
         public Employee ReceivedBy { get; set; }
         public DateTime orderdate { get; set; }
@@ -80,10 +82,10 @@ namespace WebApplication1.Models
             Books = new HashSet<Book>();
         }
 
-        public int isbn { get; set; }
-        public int quantityInOrder { get; set; }
-        public int quantityInHand { get; set; }
-        public string title { get; set; }
+        public int ISBN { get; set; }
+        public int QuantityInOrder { get; set; }
+        public int QuantityInHand { get; set; }
+        public string BookName { get; set; }
 
 
         public ICollection<Book> Books { get; set; }
