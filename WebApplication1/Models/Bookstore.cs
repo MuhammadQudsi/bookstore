@@ -28,9 +28,9 @@ namespace WebApplication1.Models
 
     }
     public class Author {
-        public int authorID { get; set; }
+        public int AuthorID { get; set; }
         public int BookID { get; set; }
-        public string name { get; set; }
+        public string AuthorName { get; set; }
 
     }
     public class Billing

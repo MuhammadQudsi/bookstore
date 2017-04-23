@@ -9,6 +9,7 @@ namespace WebApplication1.Migrations
     {
         public Configuration()
         {
+            AutomaticMigrationDataLossAllowed = true;
             AutomaticMigrationsEnabled = true;
         }
 

@@ -23,15 +23,18 @@ namespace WebApplication1.Models
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     { 
-        public ApplicationDbContext()
-            : base("ApplicationDbContext")
+        public ApplicationDbContext() : base("ApplicationDbContext")
         {
-        }   
+        }
 
+        public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+
+        
     }
 }
