@@ -6,14 +6,12 @@ using System.Web.Mvc;
 
 namespace BootstrapSite1.Controllers
 {
-    public class HomeController : Controller
+    public class TestrunController : Controller
     {
+        // GET: Testrun
         public ActionResult Index()
         {
-            ViewBag.Title = "Qudsi Book Store";
             return View();
         }
-
-        public ActionResult Testrun() => View();
     }
 }

@@ -29,7 +29,11 @@ namespace WebApplication1.Models
 
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
-        public DbSet<Book> Publishers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Billing> Billings { get; set; }
+        public DbSet<Inventory> Inventorys { get; set; }
+        
+
 
 
 
