@@ -11,5 +11,6 @@ namespace WebApplication1.Models.ViewModels
         [Required]
         public string BookName { get; set; }
         public string Author { get; set; }
+       
     }
 }

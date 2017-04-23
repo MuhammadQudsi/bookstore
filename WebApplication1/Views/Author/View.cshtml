@@ -1,0 +1,16 @@
+﻿@using FluentBootstrap
+@{
+    ViewBag.Title = "AuthorView";
+}
+
+<h2>Add An Author</h2>
+<h4>@ViewBag.Message</h4>
+
+@using (var form = Html.Bootstrap().Form().Begin())
+{
+    @form.Input("AuthorName", "Enter Name:")
+    @form.Input("AuthorID", "Enter Author ID:")
+    @form.Submit()
+
+}
+@Html.Bootstrap().LinkButton("Add Books by Author")

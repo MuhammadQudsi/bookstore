@@ -12,35 +12,31 @@ namespace WebApplication1.Models
 
     public class Book {
         [Key]
-        public int ISBN  { get; set; }
+        public string ISBN  { get; set; }
         public string BookName { get; set; }
-        public Publisher PublishedBy { get; set; }
+        
         public string Category { get; set; }
-        public Author WrittenBy { get; set; }
-        public Order Includes { get; set; }
+        public ICollection<Author> WrittenBy { get; set; }
+        public ICollection<Order> Includes { get; set; }
     }
 
-    public class Publisher {
-        public int publisherID { get; set; }
-        public string name { get; set; }
-        public string contact { get; set; }
-        public string email { get; set; }
-
-    }
+    
     public class Author {
-        public int AuthorID { get; set; }
-        public int BookID { get; set; }
+        public string AuthorID { get; set; }
+        public string ISBN { get; set; }
         public string AuthorName { get; set; }
+        public ICollection<Book> BooksWritten { get; set; }
 
     }
     public class Billing
     {
-        public int invoiceno { get; set; }
+        [Key]
+        public string invoiceno { get; set; }
         public int customerno { get; set; }
         public DateTime date { get; set; }
         public int price { get; set; }
         public int quantity { get; set; }
-        public int isbn { get; set; }
+        public string isbn { get; set; }
         public string title { get; set; }
     }
 
@@ -66,7 +62,7 @@ namespace WebApplication1.Models
         }
 
 
-        public int orderid { get; set; }
+        public string orderid { get; set; }
         public Customer BoughtBy { get; set; }
         public Employee ReceivedBy { get; set; }
         public DateTime orderdate { get; set; }
@@ -79,8 +75,8 @@ namespace WebApplication1.Models
         public Inventory() {
             Books = new HashSet<Book>();
         }
-
-        public int isbn { get; set; }
+        [Key]
+        public string isbn { get; set; }
         public int quantityInOrder { get; set; }
         public int quantityInHand { get; set; }
         public string title { get; set; }
