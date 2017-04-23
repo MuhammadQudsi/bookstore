@@ -1,0 +1,13 @@
+﻿@using FluentBootstrap
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (var form = Html.Bootstrap().Form().Begin())
+{
+    @form.Input("BookName", "Enter New Book")
+    @form.Submit()
+
+}

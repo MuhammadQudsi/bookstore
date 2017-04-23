@@ -16,15 +16,19 @@ namespace WebApplication1.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
     }
-
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
+    { 
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ApplicationDbContext")
         {
-        }
+        }   
 
+        public DbSet<Book> Books { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

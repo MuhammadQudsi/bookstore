@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,72 +9,75 @@ namespace WebApplication1.Models
     public class Bookstore
     {
     }
-    public class book {
-        public int BookID { get; set; }
-        public string name { get; set; }
-        public int PublisherID { get; set; }
-        public string Category { get; set; }
-        public int AuthorID { get; set; }
-        public string bookType { get; set; }
 
+    public class Book {
+        [Key]
+        public int ISBN  { get; set; }
+        public string BookName { get; set; }
+        public Publisher PublishedBy { get; set; }
+        public string Category { get; set; }
+        public Author WrittenBy { get; set; }
+        public Order Includes { get; set; }
     }
-    public class publisher {
+
+    public class Publisher {
         public int publisherID { get; set; }
         public string name { get; set; }
         public string contact { get; set; }
-        public string emaail { get; set; }
+        public string email { get; set; }
 
     }
-    public class author {
+    public class Author {
         public int authorID { get; set; }
         public int BookID { get; set; }
         public string name { get; set; }
 
     }
-    public class billing
+    public class Billing
     {
         public int invoiceno { get; set; }
         public int customerno { get; set; }
-        public string date { get; set; }
+        public DateTime date { get; set; }
         public int price { get; set; }
         public int quantity { get; set; }
         public int isbn { get; set; }
         public string title { get; set; }
     }
 
-    public class employee
+    public class Employee : ApplicationUser
     {
-        public int empid { get; set; }
-        public string name { get; set; }
-        public string address { get; set; }
-        public int telephone { get; set; }
         public string hiredate { get; set; }
         public string position { get; set; }
     }
 
 
-    public class customer
+    public class Customer : ApplicationUser
     {
-        public int customerid { get; set; }
-        public int contact { get; set; }
-        public string name { get; set; }
-        public string email { get; set; }
+       public string CreditCard { get; set; }
     }
 
 
-    public class order
+    public class Order
     {
+        
+        public Order()
+        {
+            Books = new HashSet<Book>();
+        }
+
+
         public int orderid { get; set; }
-        public int customerid { get; set; }
-        public int empid { get; set; }
-        public string orderdate { get; set; }
+        public Customer BoughtBy { get; set; }
+        public Employee ReceivedBy { get; set; }
+        public DateTime orderdate { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 
 
-    public class inventory
+    public class Inventory
     {
-        public inventory() {
-            books = new HashSet<book>();
+        public Inventory() {
+            Books = new HashSet<Book>();
         }
 
         public int isbn { get; set; }
@@ -82,11 +86,9 @@ namespace WebApplication1.Models
         public string title { get; set; }
 
 
-        public ICollection<book> books { get; set; }
+        public ICollection<Book> Books { get; set; }
 
     }
-
-    public class hhh {
-
-    }
+    
+  
 }
