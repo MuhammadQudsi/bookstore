@@ -12,21 +12,25 @@ namespace WebApplication1.Controllers
     {
         // GET: Book
         public ActionResult Index()
-        { 
+        {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index (BookViewModel model) {
-
+        public ActionResult Index(BookViewModel model)
+        {
             var db = Globals.GetDatabase();
             var book = new Book();
             var Author = new Author();
-
+            Author.AuthorID = Guid.NewGuid().ToString();
             book.BookName = model.BookName;
             Author.AuthorName = model.Author;
-            book.WrittenBy = Author; 
-            if (!db.Books.Any(c => c.BookName == book.BookName)) {
+            //book.WrittenBy = Author;
+            db.Authors.Add(Author);
+            db.SaveChanges();
+
+            if (!db.Books.Any(c => c.BookName == model.BookName))
+            {
                 db.Books.Add(book);
                 db.SaveChanges();
                 ViewBag.Message = "Book Added";
@@ -36,8 +40,22 @@ namespace WebApplication1.Controllers
             ModelState.AddModelError(string.Empty, "Book Already in Records.");
             return View();
 
-            
+
         }
 
+        public ActionResult Order(FormCollection form)
+        {
+            var db = Globals.GetDatabase();
+            var order = new Order();
+            
+
+            //Author.AuthorID = Guid.NewGuid().ToString();
+            db.Orders.Add(order);
+            db.SaveChanges();
+
+            ViewBag.Message = "Order Placed Successfully";
+            return View();
+
+        }
     }
 }

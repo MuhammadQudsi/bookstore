@@ -24,8 +24,9 @@ namespace WebApplication1
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-theme.css",
-                      "~/Content/site.css"));
+                      "~/Content/Cosmo.min.css",
+                      "~/Content/site.css",
+                      "~/Content/carousel.css"));
         }
     }
 }
