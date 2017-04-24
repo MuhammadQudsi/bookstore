@@ -11,31 +11,24 @@ namespace WebApplication1.Controllers
     public class AuthorController : Controller
     {
         [HttpPost]
-        public ActionResult View(AuthorViewModel model)
+        public ActionResult Viewx(AuthorViewModel model)
         {
             var db = Globals.GetDatabase();
             var author = new Author();
             author.AuthorName = model.AuthorName;
-            db.Authors.Add(author);
-            db.SaveChanges();
-
-            if (!db.Authors.Any(c => c.AuthorName == model.AuthorName))
-            {
+            if (!db.Authors.Any(c => c.AuthorName == author.AuthorName)){
                 db.Authors.Add(author);
                 db.SaveChanges();
                 ViewBag.Message = "Author Added";
                 return View();
             }
-
-            ModelState.AddModelError(string.Empty, "Author Already in Records.");
+            ModelState.AddModelError("a1", "Author already added");
             return View();
-
 
         }
 
-        public ActionResult View(FormCollection form)
+        public ActionResult Viewx()
         {
-            string name = form["AuthorName"];
             return View();
         }
     }

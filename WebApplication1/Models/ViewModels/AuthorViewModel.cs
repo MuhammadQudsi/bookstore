@@ -10,11 +10,10 @@ namespace WebApplication1.Models.ViewModels
     {
         [Required]
         public string AuthorName { get; set; }
-
+/*
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        
-        public string ContactNumber { get; set; }
+        public string ContactNumber { get; set; }*/
     }
 }

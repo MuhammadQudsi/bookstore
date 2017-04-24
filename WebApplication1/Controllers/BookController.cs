@@ -43,19 +43,19 @@ namespace WebApplication1.Controllers
 
         }
 
-        public ActionResult Order(FormCollection form)
-        {
-            var db = Globals.GetDatabase();
-            var order = new Order();
-            
+        /*       public ActionResult Order(FormCollection form)
+               {
+                   var db = Globals.GetDatabase();
+                   var order = new Order();
+                   order.Books = form.
 
-            //Author.AuthorID = Guid.NewGuid().ToString();
-            db.Orders.Add(order);
-            db.SaveChanges();
+                   //Author.AuthorID = Guid.NewGuid().ToString();
+                   db.Orders.Add(order);
+                   db.SaveChanges();
 
-            ViewBag.Message = "Order Placed Successfully";
-            return View();
+                   ViewBag.Message = "Order Placed Successfully";
+                   return View();*/
 
-        }
+      
     }
 }

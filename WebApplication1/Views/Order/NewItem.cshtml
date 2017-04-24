@@ -1,0 +1,25 @@
+﻿@using FluentBootstrap
+
+
+@{
+    ViewBag.Title = "NewItem";
+}
+
+<h2>NewItem</h2>
+
+
+
+
+
+@using (var form = Html.Bootstrap().Form().Begin())
+{
+    @form.Input("name", "Your Name")
+
+    @form.Input("BookName1", "Book Name 1")
+/*    @form.Input("BookName2", "Book Name 2")
+    @form.Input("BookName3", "Book Name 3")
+    @form.Input("BookName4", "Book Name 4")
+    @form.Input("BookName5", "Book Name 5")*/
+    @form.Submit("Place Order")
+
+}

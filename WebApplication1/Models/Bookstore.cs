@@ -14,7 +14,6 @@ namespace WebApplication1.Models
         [Key]
         public string ISBN  { get; set; }
         public string BookName { get; set; }
-        
         public string Category { get; set; }
         public ICollection<Author> WrittenBy { get; set; }
         public ICollection<Order> Includes { get; set; }
